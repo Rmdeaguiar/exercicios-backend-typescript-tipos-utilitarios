@@ -37,3 +37,38 @@ type CarrinhoResultado = {
     endereco: Endereco
 }
 
+
+
+
+
+
+// EXTRA
+
+type CarrinhoResultado2 = Omit<Carrinho, 'tipoTransacao'> & {
+    endereco: Endereco,
+    tipoTransacao: Lowercase<'credito' | 'Debito'>
+}
+
+const produtoVenda: CarrinhoResultado2 = {
+    item: {
+        nome:'item',
+        descricao: 'item venda',
+        valor: 30
+    },
+    qtd: 2,
+    desconto: 0,
+    frete: 20,
+    tipoTransacao: 'credito',
+    cartao: {
+        numero: 131221,
+        validade: '10/10/2025',
+        nome: 'Roberto',
+        cvv: 123
+    },
+    endereco:{
+        cep: '312121',
+        bairro: 'Brotas',
+        cidade: 'Salvador',
+        estado: 'Bahia'
+    }
+}
